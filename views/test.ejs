@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/sort.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <div id="center">
+    <div>
+      <input type="file" id="fileUpload" accept=".xlsx" required /><br />
+      <table>
+        <tr>
+          <td>
+            <input class="common date-1" type="text" placeholder="Date One">
+            <input class="common value-1" type="text" placeholder="Value One">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="common date-2" type="text" placeholder="Date Two">
+            <input class="common value-2" type="text" placeholder="Value Two">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="common date-3" type="text" placeholder="Date Three">
+            <input class="common value-3" type="text" placeholder="Value Three">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input class="common date-4" type="text" placeholder="Date Four">
+            <input class="common value-4" type="text" placeholder="Value Four">
+          </td>
+        </tr>
+      </table>
+      <button type="button" class="my-button" id="uploadExcel">Search</button>
+      <div style="margin-top: 20px;">
+        <span id="year"></span>
+        <ul id="outputList"></ul>
+      </div>
+    </div>
+    <div style="margin-top: 20px;">
+      <span>
+        <a href="https://online2pdf.com/convert-word-to-excel#" target="_blank">
+          <b>Use this Url to convert word document to excel </b></a>
+      </span>
+    </div>
+  </div>
+
+</body>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="/js/sort.js"></script>
+
+</html>
