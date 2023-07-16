@@ -17,6 +17,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', async (req, res) => {
+    try {
+        if (req.session.loggedIn) {
+            return res.redirect('/sort');
+        }
+        else{
+            return res.redirect('/login');
+        }
+        }
+    catch (err) {
+        console.log("err", err);
+    }
+});
 app.get('/login', async (req, res) => {
     try {
         return res.render('login.ejs');
@@ -29,7 +42,6 @@ app.get('/login', async (req, res) => {
 app.post('/login', async (req, res) => {
     try {
         let loginData = req.body
-        console.log("🚀 ~ file: index.js:26 ~ app.post ~ loginData:", loginData.username, loginData, process.env.EMAIL, process.env.PASSWORD);
         if (process.env.EMAIL === loginData.username) {
             if (process.env.PASSWORD === loginData.password) {
                 req.session.loggedIn = true;
