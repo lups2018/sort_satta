@@ -828,4 +828,7 @@ document
             };
             fileReader.readAsBinaryString(selectedFile);
         }
+        else {
+            alert("Please Upload File to run")
+        }
     });

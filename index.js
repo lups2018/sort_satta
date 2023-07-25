@@ -82,6 +82,20 @@ app.get('/sortOne', async (req, res) => {
     }
 });
 
+app.get('/sortMultiple', async (req, res) => {
+    try {
+        if (req.session.loggedIn) {
+            return res.render('sortMultiple.ejs');
+        }
+        else{
+            return res.redirect('/login');
+        }
+    }
+    catch (err) {
+        console.log("err", err);
+    }
+});
+
 app.get('/logout', async (req, res) => {
     try {
         req.session.loggedIn = false;

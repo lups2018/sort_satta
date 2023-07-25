@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- <link rel="stylesheet" href="/css/sort.css"> -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+
+  <style>
+    .input-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      /* Adjust the column width as needed */
+      gap: 10px;
+      /* Adjust the gap between inputs as needed */
+    }
+
+    .input-container input {
+      width: 100px;
+    }
+
+    /* Styling for the input tag */
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    #fileUpload {
+      margin-bottom: 20px;
+    }
+
+    /* Optional: Additional styling for focus state */
+    input:focus {
+      border-color: blue;
+      box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+    }
+
+    .my-button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      /* background: antiquewhite; */
+    }
+
+    #center {
+      text-align: center;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: bisque;
+      margin-top: 150px;
+    }
+
+    .common {
+      padding: 5px;
+      margin-bottom: 10px;
+      width: 300px;
+    }
+
+    .my-button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 150px;
+    }
+
+    .my-button-reset {
+      padding: 10px 20px;
+      background-color: #ffba00;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 150px;
+      height: 40px;
+    }
+
+    .my-button-logout {
+      padding: 10px 20px;
+      background-color: #afa54c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 150px;
+    }
+
+    #year {
+      font-weight: bold;
+    }
+
+    #outputList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    /* Optional: Additional styling for hover and active states */
+    .my-button:hover {
+      background-color: #45a049;
+    }
+
+    .my-button:active {
+      background-color: #3e8e41;
+    }
+
+    .top-right {
+      position: fixed;
+      top: 10%;
+      right: 0;
+    }
+
+    .loader {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 2s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      #center tr {
+        display: flex;
+        width: 100% !important;
+      }
+
+      #center tr td {
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+      }
+
+      #center tr td input {
+        width: 100%;
+      }
+
+      .common {
+        margin: 5px;
+        width: 100%;
+      }
+
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Sort Website</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+  <div class="top-right">
+    <a href="/logout">
+      <button class="my-button-logout">Logout</button>
+    </a>
+  </div>
+
+  <div id="center">
+    <div>
+
+      <input type="file" id="fileUpload" required /><br />
+
+      <table class="table-1">
+        <span><b> Initial Set </b></span>
+        <tr>
+          <td>
+            <input onchange="validateInputs(this)" class="common date-1" type="text" placeholder="Date One" value="14">
+            <input onchange="validateInputs(this)" class="common value-1" type="text" placeholder="Value One"
+              value="7?">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input onchange="validateInputs(this)" class="common date-2" type="text" placeholder="Date Two" value="15">
+            <input onchange="validateInputs(this)" class="common value-2" type="text" placeholder="Value Two"
+              value="52">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input onchange="validateInputs(this)" class="common date-3" type="text" placeholder="Date Three"
+              value="16">
+            <input onchange="validateInputs(this)" class="common value-3" type="text" placeholder="Value Three"
+              value="7?">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input onchange="validateInputs(this)" class="common date-4" type="text" placeholder="Date Four" value="17">
+            <input onchange="validateInputs(this)" class="common value-4" type="text" placeholder="Value Four"
+              value="?6">
+          </td>
+        </tr>
+      </table>
+      <div class="result-1" style="margin-top: 20px;">
+        <b class="no-data"></b>
+        <b><span class="year"></span></b>
+        <b>
+          <ul style="margin-right: 30px;" class="outputList"></ul>
+        </b>
+      </div>
+      <div id="yourDiv"></div>
+
+      <div id="loader" class="loader"></div>
+
+      <button type="button" class="my-button" id="appendTables">Generate</button>
+      <button type="button" style="display: none;" class="my-button" id="uploadExcel">Search</button>
+      <button type="button" style="display: none;" class="my-button-reset" id="reset">Reset</button>
+
+
+
+    </div>
+    <div style="margin-top: 20px;">
+      <span>
+        <a href="https://online2pdf.com/convert-word-to-excel#" target="_blank">
+          <b>Use this Url to convert word document to excel </b></a>
+      </span>
+    </div>
+  </div>
+
+</body>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="/js/sortMultiple.js"></script>
+<script>
+
+</script>
+
+</html>
