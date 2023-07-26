@@ -234,9 +234,9 @@ document
                         if (parseInt(i) < 1) {
                             valMinus = -1;
                         }
-                        if (leap.includes(index[i])) {
-                            leapMonth = true;
-                        }
+                        // if (leap.includes(index[i])) {
+                        //     leapMonth = true;
+                        // }
                         strongValues.push({
                             value: values[i],
                             date: index[i],

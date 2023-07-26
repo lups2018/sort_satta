@@ -93,9 +93,10 @@ document
                     if (parseInt(i) < 1) {
                         valMinus = -1;
                     }
-                    if (leap.includes(index[i])) {
-                        leapMonth = true;
-                    }
+                    // if (leap.includes(index[i])) {
+                    //     console.log("leap moht true");
+                    //     leapMonth = true;
+                    // }
                     strongValues.push({
                         value: values[i],
                         date: index[i],
@@ -122,6 +123,7 @@ document
                         valMinus = -1;
                     }
                     if (leap.includes(index[i])) {
+                        console.log("leap month")
                         leapMonth = true;
                     }
                     findSingle.push({
