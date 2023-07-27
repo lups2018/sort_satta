@@ -318,8 +318,8 @@ document
                                             startindex = startindex === undefined ? parseInt(j) - parseInt(strongValues[0].date) + 1 : startindex;
                                             let endIndex = parseInt(j) + (30 - parseInt(strongValues[0].date));
                                             if(leapMonth){
-                                                startindex = startindex - 30;
-                                                endIndex = endIndex + 30
+                                                startindex = startindex - 10;
+                                                endIndex = endIndex + 10
                                             }
                                             console.log("indexed-------", startindex, endIndex)
                                             for (let z = startindex; z < endIndex; z++) {
@@ -376,6 +376,7 @@ document
                                                                         }
                                                                         let isMatchTwo = compareStrings(findSingle[1].value, newData[k][findSingle[1].date][monthTwo]);
                                                                         if (isMatchTwo) {
+                                                                            console.log("🚀 ~ file: sort.js:378 ~ extraWork ~  newData[k][findSingle[1].date][monthTwo]:",  newData[k][findSingle[1].date][monthTwo])
                                                                             for (let m = startindex; m < endIndex; m++) {
                                                                                 if (newData[m] !== undefined  && outputData.length !== 4) {
                                                                                     if (newData[m][findSingle[2].date]) {
@@ -404,6 +405,7 @@ document
 
                                                                                         let isMatchThree = compareStrings(findSingle[2].value, newData[m][findSingle[2].date][monthThree]);
                                                                                         if (isMatchThree) {
+                                                                                            console.log("🚀 ~ file: sort.js:407 ~ extraWork ~ newData[m][findSingle[2].date][monthThree]:", newData[m][findSingle[2].date][monthThree])
                                                                                             strongValues.push({
                                                                                                 value: newData[z][findSingle[0].date][monthOne],
                                                                                                 date: parseInt(index[findSingle[0].index]),
@@ -651,157 +653,14 @@ document
                     }
                     firstValue(data);
                     months = removeDuplicates(months)
-                    if (monthFeb === 'Feb' || leapMonth || nextYear) {
+                    // if (monthFeb === 'Feb' || leapMonth || nextYear) {
                         extraWork(data)
-                        // data = newData
-                    }
-                    else {
-                        restValues(data);
-                    }
-                    // secondValue(data);
+                    // }
+                    // else {
+                    //     restValues(data);
+                    // }
                     console.log(outputData)
-                    // let filledoutputData = [];
-                    // for (let i = 0; i < outputData.length; i++) {
-                    //     if (outputData[i] === '') {
-                    //         if (outputData[i + 1] !== undefined && outputData[i + 1] !== '') {
-                    //             filledoutputData.push(outputData[i + 1] - 1);
-                    //         }
-                    //         else if (outputData[i + 2] !== undefined && outputData[i + 2] !== '') {
-                    //             filledoutputData.push(outputData[i + 2] - 2);
-                    //         }
-                    //         else if (outputData[i + 3] !== undefined && outputData[i + 3] !== '') {
-                    //             filledoutputData.push(outputData[i + 3] - 3);
-                    //         }
-                    //         else {
-                    //             filledoutputData.push(filledoutputData[i - 1] + 1);
-                    //         }
-                    //     } else {
-                    //         filledoutputData.push(outputData[i]);
-                    //     }
-                    // }
-                    // console.log(filledoutputData)
-                    // let prevMonthIndex;
-                    // let minusValuesTwo = {
-                    //     "1": 30,
-                    //     "2": 30,
-                    //     "3": 30
-                    // }
-
-                    // let minusValuesThree = {
-                    //     "1": 29,
-                    //     "2": 29,
-                    //     "3": 29
-                    // }
-
-
-                    // for (let j in index) {
-                    //     let minus;
-                    //     let minusIndex;
-                    //     if (prevMonthIndex) {
-                    //         minus = parseInt(index[prevMonthIndex]) - parseInt(index[j]);
-                    //     }
-                    //     else {
-                    //         minus = parseInt(index[parseInt(j) - 1]) - parseInt(index[j]);
-                    //         if (minus > 2) {
-                    //             prevMonthIndex = parseInt(j) - 1;
-                    //             dataSetNew.indexStart = parseInt(j);
-                    //         }
-                    //     }
-                    //     if (minus > 2) {
-                    //         monthsArray.map((mo, index) => {
-                    //             if (mo === dataSet.month) {
-                    //                 dataSetNew.month = monthsArray[index + 1];
-                    //             }
-                    //         })
-                    //         if (dataSetNew.indexStart === 2) {
-                    //             minusIndex = minusValuesTwo[index[j]];
-                    //         }
-                    //         else if (dataSetNew.indexStart === 3) {
-                    //             minusIndex = minusValuesThree[index[j]];
-                    //         }
-
-                    //         //check for this line in anothjer data
-                    //         // if (strongValuesOld[0].index >= dataSetNew.indexStart) {
-                    //             console.log("inside this");
-                    //             filledoutputData[j] = filledoutputData[j] - minusIndex;
-                    //         // }
-                    //     }
-                    // }
-                    // //to update value for last data
-                    // if (dataSetNew.indexStart === 3 && strongValuesOld[0].index === 3) {
-                    //     for (let u in filledoutputData) {
-                    //         if (parseInt(u) < 3) {
-                    //             filledoutputData[u] = filledoutputData[3] + parseInt(index[u]) - 1;
-                    //         }
-                    //     }
-                    // }
-                    // if (dataSetNew.indexStart === 2) {
-                    //     if (strongValuesOld[0].index === 2) {
-                    //         for (let u in filledoutputData) {
-                    //             if (parseInt(u) < 2) {
-                    //                 filledoutputData[u] = filledoutputData[3] + parseInt(index[u]) - 2;
-                    //             }
-                    //         }
-                    //     }
-                    //     if (strongValuesOld[0].index === 3) {
-                    //         for (let u in filledoutputData) {
-                    //             if (parseInt(u) < 2) {
-                    //                 console.log("sindie one", filledoutputData[u])
-                    //                 filledoutputData[u] = filledoutputData[3] + parseInt(index[u]) - 2
-                    //                 console.log("sindie one", filledoutputData[u])
-                    //             }
-                    //         }
-                    //     }
-                    // }
-                    // if (dataSetNew.indexStart === 1) {
-                    //     if (strongValuesOld[0].index === 0) {
-                    //         console.log("Strong vaue cjecl");
-                    //         for (let u in filledoutputData) {
-                    //             if (parseInt(u) < 1) {
-                    //                 filledoutputData[u] = filledoutputData[3] + parseInt(index[u]) - 3;
-                    //             }
-                    //         }
-                    //     }
-                    //     if (strongValuesOld[0].index === 1) {
-                    //         for (let u in filledoutputData) {
-                    //             if (parseInt(u) < 1) {
-                    //                 filledoutputData[u] = filledoutputData[3] + parseInt(index[u]) - 3;
-                    //             }
-                    //         }
-                    //     }
-                    //     if (strongValuesOld[0].index === 2) {
-                    //         for (let u in filledoutputData) {
-                    //             if (parseInt(u) < 1) {
-                    //                 filledoutputData[u] = filledoutputData[3] + parseInt(index[u]) - 3
-                    //             }
-                    //         }
-                    //     }
-                    //     if (strongValuesOld[0].index === 3) {
-                    //         for (let u in filledoutputData) {
-                    //             if (parseInt(u) < 1) {
-                    //                 filledoutputData[u] = filledoutputData[3] + parseInt(index[u]) - 3
-                    //             }
-                    //         }
-                    //     }
-                    // }
-                    // console.log(filledoutputData)
-                    // for (let k in filledoutputData) {
-                    //     let month;
-                    //     if (dataSetNew.indexStart && dataSetNew.indexStart !== 0) {
-                    //         if (parseInt(k) < dataSetNew.indexStart) {
-                    //             month = dataSet.month;
-                    //         }
-                    //         else {
-                    //             month = dataSetNew.month;
-                    //         }
-                    //     }
-                    //     else {
-                    //         month = dataSet.month;
-                    //     }
-
-                    //     let value = Object.values(data[filledoutputData[k]]);
-                    //     values[k] = value[0][month];
-                    // }
+            
                     outputData.forEach((d, i) => {
                         let value = Object.values(data[d.index]);
                         values[i] = value[0][d.month];

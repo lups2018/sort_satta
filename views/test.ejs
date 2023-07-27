@@ -8,133 +8,136 @@
 
   <style>
     .input-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    /* Adjust the column width as needed */
-    gap: 10px;
-    /* Adjust the gap between inputs as needed */
-  }
+      display: grid;
+      grid-template-columns: 1fr;
+      /* Adjust the column width as needed */
+      gap: 10px;
+      /* Adjust the gap between inputs as needed */
+    }
 
-  .input-container input {
-    width: 100px;
-  }
+    .input-container input {
+      width: 100px;
+    }
 
-  /* Styling for the input tag */
-  input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-  }
-  #fileUpload{
-    margin-bottom: 20px;
-  }
-  /* Optional: Additional styling for focus state */
-  input:focus {
-    border-color: blue;
-    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
-  }
+    /* Styling for the input tag */
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
 
-  .my-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+    #fileUpload {
+      margin-bottom: 20px;
+    }
 
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    /* background: antiquewhite; */
-  }
+    /* Optional: Additional styling for focus state */
+    input:focus {
+      border-color: blue;
+      box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+    }
 
-  #center {
-    text-align: center;
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: bisque;
-  }
+    .my-button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-  .common {
-    padding: 5px;
-    margin-bottom: 10px;
-    width: 300px;
-  }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      /* background: antiquewhite; */
+    }
 
-  .my-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 150px;
-  }
-  .my-button-logout {
-    padding: 10px 20px;
-    background-color: #afa54c;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 150px;
-  }
+    #center {
+      text-align: center;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background: bisque;
+    }
 
-  #year {
-    font-weight: bold;
-  }
+    .common {
+      padding: 5px;
+      margin-bottom: 10px;
+      width: 300px;
+    }
 
-  #outputList {
-    list-style-type: none;
-    padding: 0;
-  }
+    .my-button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 150px;
+    }
 
-  /* Optional: Additional styling for hover and active states */
-  .my-button:hover {
-    background-color: #45a049;
-  }
+    .my-button-logout {
+      padding: 10px 20px;
+      background-color: #afa54c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 150px;
+    }
 
-  .my-button:active {
-    background-color: #3e8e41;
-  }
+    #year {
+      font-weight: bold;
+    }
 
-  .top-right {
-        position: fixed;
-        top: 10%;
-        right: 0;
+    #outputList {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    /* Optional: Additional styling for hover and active states */
+    .my-button:hover {
+      background-color: #45a049;
+    }
+
+    .my-button:active {
+      background-color: #3e8e41;
+    }
+
+    .top-right {
+      position: fixed;
+      top: 10%;
+      right: 0;
+    }
+
+    @media only screen and (max-width: 767px) {
+      #center tr {
+        display: flex;
+        width: 100% !important;
       }
-@media only screen and (max-width: 767px)
-{
-  #center tr {
-    display: flex;
-    width: 100% !important;
-}
 
-#center tr td {
-    justify-content: center;
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-}
+      #center tr td {
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+      }
 
-#center tr td input {
-    width: 100%;
-}
+      #center tr td input {
+        width: 100%;
+      }
 
-.common {
-    margin: 5px;
-    width: 100%;
-}
+      .common {
+        margin: 5px;
+        width: 100%;
+      }
 
-  }
+    }
   </style>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -150,11 +153,11 @@
       <button class="my-button-logout">Multiple Search</button>
     </a>
     <a href="/logout">
-    <button class="my-button-logout">Logout</button>
-  </a>
+      <button class="my-button-logout">Logout</button>
+    </a>
 
 
-</div>
+  </div>
 
   <div id="center">
     <div>
@@ -165,26 +168,26 @@
 
         <tr>
           <td>
-            <input onchange="validateInputs(this)" class="common date-1" type="text" placeholder="Date One" value="29">
-            <input onchange="validateInputs(this)" class="common value-1" type="text" placeholder="Value One" value="84">
+            <input onchange="validateInputs(this)" class="common date-1" type="text" placeholder="Date One" value="1">
+            <input onchange="validateInputs(this)" class="common value-1" type="text" placeholder="Value One"value="95">
           </td>
         </tr>
         <tr>
           <td>
-            <input onchange="validateInputs(this)" class="common date-2" type="text" placeholder="Date Two" value="30">
-            <input onchange="validateInputs(this)" class="common value-2" type="text" placeholder="Value Two" value="0?">
+            <input onchange="validateInputs(this)" class="common date-2" type="text" placeholder="Date Two" value="2">
+            <input onchange="validateInputs(this)" class="common value-2" type="text" placeholder="Value Two"value="8?">
           </td>
         </tr>
         <tr>
           <td>
-            <input onchange="validateInputs(this)" class="common date-3" type="text" placeholder="Date Three" value="1">
-            <input onchange="validateInputs(this)" class="common value-3" type="text" placeholder="Value Three" value="3?">
+            <input onchange="validateInputs(this)" class="common date-3" type="text" placeholder="Date Three" value="3">
+            <input onchange="validateInputs(this)" class="common value-3" type="text" placeholder="Value Three" value="2?">
           </td>
         </tr>
         <tr>
           <td>
-            <input onchange="validateInputs(this)" class="common date-4" type="text" placeholder="Date Four" value="2">
-            <input onchange="validateInputs(this)" class="common value-4" type="text" placeholder="Value Four" value="9?">
+            <input onchange="validateInputs(this)" class="common date-4" type="text" placeholder="Date Four" value="4">
+            <input onchange="validateInputs(this)" class="common value-4" type="text" placeholder="Value Four" value="0?">
           </td>
         </tr>
       </table>
